@@ -7,7 +7,14 @@ import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+
+
+import DarkModeToggle from "react-dark-mode-toggle";
+import { useState } from 'react';
+
 const Header = () => {
+    const [darkMode, setDarkMode] = useState(() => false);
+    console.log(darkMode)
     const { user } = useContext(AuthContext);
     console.log(user)
     return (
