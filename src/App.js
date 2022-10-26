@@ -1,10 +1,15 @@
-import logo from './logo.svg';
+import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
+import { route } from './routers/Route';
 
 function App() {
   return (
-    <div className="App">
-      <h1>this is assignment 10</h1>
+    <div>
+      <RouterProvider router={route}>
+
+      </RouterProvider>
+      <Toaster></Toaster>
     </div>
   );
 }
