@@ -5,7 +5,11 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { FaUserAlt } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 const Header = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user)
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -17,12 +21,19 @@ const Header = () => {
                         <Link className='me-2' to="/questions">FAQ</Link>
                         <Link className='me-2' to="/blogs">Blogs</Link>
                     </Nav>
-                    <Nav>
+                    <Nav className='d-flex align-items-center fw-semibold'>
                         <Nav.Link href="#pricing">themes</Nav.Link>
-                        <Nav.Link href="#deets">
-                            <Image roundedCircle style={{ height: '30px' }}></Image>
-                            <FaUserAlt></FaUserAlt>
-                        </Nav.Link>
+                        <Link className='text-light' href="/">
+                            {
+                                user?.uid ?
+                                    <>
+                                        <Image roundedCircle style={{ height: '35px' }} src={user?.photoURL}></Image>
+                                        <small className='mx-2'>{user.displayName}</small>
+                                    </>
+                                    :
+                                    <FaUserAlt></FaUserAlt>
+                            }
+                        </Link>
                         <Link to="/login">
                             Login
                         </Link>

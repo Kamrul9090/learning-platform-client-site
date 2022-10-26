@@ -5,7 +5,7 @@ import Login from "../components/Login/Login";
 import RightSideNav from "../components/RightSideNav/RightSideNav";
 import Error from "../layout/Error/Error";
 import Main from '../layout/Main'
-import SignIn from '../components/SignIn/SignIn'
+import SignUp from "../components/SignUp/SignUp";
 
 export const route = createBrowserRouter([
     {
@@ -26,7 +26,7 @@ export const route = createBrowserRouter([
             },
             {
                 path: '/register',
-                element: <SignIn></SignIn>
+                element: <SignUp></SignUp>
             },
             {
                 path: '/blogs',
