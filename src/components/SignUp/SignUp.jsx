@@ -75,8 +75,8 @@ const SignUp = () => {
         }
     }
     return (
-        <div className='w-50 mt-5 mx-auto fw-semibold border  border-2 border-success rounded'>
-            <Form onSubmit={handleSubmitForm}>
+        <div className='mt-5 mx-auto fw-semibold'>
+            <Form onSubmit={handleSubmitForm} className='w-50 mx-auto border p-2 border-2 border-success rounded'>
                 <h2 className='text-center text-success fw-bold'>Sign Up</h2>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
