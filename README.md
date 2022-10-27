@@ -10,4 +10,4 @@
 
 ## login, sign in, log out, google, github authentication system with using firebase.
 ## added a private route to access the courses.
-## 
+## netlify live site link: (`https://edu-port-97e08e.netlify.app/`)

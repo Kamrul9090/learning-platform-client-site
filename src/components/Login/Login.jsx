@@ -69,6 +69,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('Login with Github successfully')
+                navigate(from, { replace: true })
             })
             .catch(e => {
                 console.log(e.message);

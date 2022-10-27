@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Button } from 'react-bootstrap';
 import { FaArrowCircleDown } from "react-icons/fa";
 import { HiArchive, HiClock } from "react-icons/hi";
+import ReactToPdf from 'react-to-pdf'
+
+
+const ref = createRef()
+
 const CourseDetails = () => {
     const data = useLoaderData();
     const { name, about, email, time, picture, phone, price, lecture, _id } = data;
@@ -16,8 +21,20 @@ const CourseDetails = () => {
                     <FaArrowCircleDown style={{ marginLeft: '5px', width: '30px', height: '40px' }}></FaArrowCircleDown>
                 </div>
                 <div>
-                    <Button>Download PDF</Button>
+                    <ReactToPdf targetRef={ref} filename="eduport.pdf">
+                        {({ toPdf }) => (
+                            <Button onClick={toPdf}>Download PDF</Button>
+                        )}
+                    </ReactToPdf>
                 </div>
+            </div>
+            <div className='mx-auto fw-semibold' style={{ width: '400px', textAlign: 'center' }} ref={ref} >
+                <h6 className='text-success'>About Our course</h6>
+                <small>Edu- Port is a learning bage site. We have many crush courses that help you to develop your skills. Like web development, finance, graphic design, marketing, web design etc.</small>
+                <li>total course 06</li>
+                <li>Course Price: $50+</li>
+                <li>Total lecture per course 90+</li>
+                <li>courses duration 11h 90m+ per courses.</li>
             </div>
             <Card className='m-5 w-75'>
                 <Card.Img variant="top" src={picture} />

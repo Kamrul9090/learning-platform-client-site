@@ -1,16 +1,17 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { FaDiscord } from "react-icons/fa";
 
 const Checkout = () => {
     const categoryName = useLoaderData();
     const { course, name } = categoryName;
 
     return (
-        <div className='text-center mt-5'>
-            <h4> Thanks For Access: <small className='text-primary fw-bold'>{name}</small> Course</h4>
-            <h6>Your Course Access id: <span className='text-success fw-bold'>{course}</span></h6>
-            <div className='fw-bold'>
-                কি আছে আর জীবনে!!
+        <div className='text-center' style={{ marginTop: '200px' }}>
+            <h4> Thanks For Access <p className='text-primary fw-bold'>{name}</p> Course</h4>
+            <h6><small>Your Course Access id:</small> <span className='text-success fw-bold'>{course}</span></h6>
+            <div>
+                <FaDiscord style={{ width: '300px', height: '100px', color: 'green' }}></FaDiscord>
             </div>
         </div>
     );
