@@ -1,11 +1,11 @@
-import React, { Profiler, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.init';
 import { useState } from 'react';
 
 
-import DarkModeToggle from "react-dark-mode-toggle";
+
 
 export const AuthContext = createContext();
 const auth = getAuth(app)
@@ -26,6 +26,11 @@ const AuthProvider = ({ children }) => {
     const signInGoogle = (provider) => {
         setLoader(true)
         return signInWithPopup(auth, provider);
+    }
+
+    const logOut = () => {
+        setLoader(true)
+        return signOut(auth)
     }
 
     // sign in with GitHub
@@ -75,6 +80,7 @@ const AuthProvider = ({ children }) => {
         signInGoogle,
         signInGithub,
         createUser,
+        logOut,
         signInUser,
         updateUserProfile
     }

@@ -6,7 +6,6 @@ import RightSideNav from "../components/RightSideNav/RightSideNav";
 import Error from "../layout/Error/Error";
 import Main from '../layout/Main'
 import SignUp from "../components/SignUp/SignUp";
-import Home from "../components/Home/Home";
 import CourseDetails from "../components/CourseDetails/CourseDetails";
 import Checkout from "../components/Checkout/Checkout";
 import PrivateRoute from "./PrivateRoute";
@@ -15,6 +14,7 @@ export const route = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',
@@ -38,8 +38,9 @@ export const route = createBrowserRouter([
         ],
     },
     {
-        path: '/checkout',
-        element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
+        path: '/checkout/:id',
+        element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
     },
     {
         path: '/login',
@@ -49,8 +50,4 @@ export const route = createBrowserRouter([
         path: '/register',
         element: <SignUp></SignUp>
     },
-    {
-        path: '/*',
-        element: <Error></Error>
-    }
 ])

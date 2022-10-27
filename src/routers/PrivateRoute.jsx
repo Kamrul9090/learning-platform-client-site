@@ -9,10 +9,10 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
     console.log(location)
     if (loader) {
-        <Spinner animation="border" variant="success" />
+        return <Spinner animation="border" variant="success" />
     }
     if (user) {
-        return children
+        return children;
     }
     return <Navigate to='/login' state={{ from: location }} replace></Navigate>;
 };

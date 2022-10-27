@@ -75,44 +75,46 @@ const SignUp = () => {
         }
     }
     return (
-        <Form className='w-75 mt-5 mx-auto fw-semibold border  border-2 border-success rounded p-5' onSubmit={handleSubmitForm}>
-            <h2 className='text-center text-success fw-bold'>Sign Up</h2>
-            <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control name="name" type="text" placeholder="Enter your name" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPhoto">
-                <Form.Label>Photo URL</Form.Label>
-                <Form.Control name="photoURL" type="text" placeholder="Photo url" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control onChange={handleEmailForm} type="email" placeholder="Enter email" required />
-                {
-                    errors.emailErrors && <p className='text-danger'><small>{errors.emailErrors}</small></p>
-                }
-            </Form.Group>
+        <div className='w-50 mt-5 mx-auto fw-semibold border  border-2 border-success rounded'>
+            <Form onSubmit={handleSubmitForm}>
+                <h2 className='text-center text-success fw-bold'>Sign Up</h2>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control name="name" type="text" placeholder="Enter your name" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicPhoto">
+                    <Form.Label>Photo URL</Form.Label>
+                    <Form.Control name="photoURL" type="text" placeholder="Photo url" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control onChange={handleEmailForm} type="email" placeholder="Enter email" required />
+                    {
+                        errors.emailErrors && <p className='text-danger'><small>{errors.emailErrors}</small></p>
+                    }
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control onChange={handlePasswordForm} type="password" placeholder="Password" required />
-                {
-                    errors.passwordError && <p className='text-danger'><small>{errors.passwordError}</small></p>
-                }
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
-            <Form.Text className="text-muted">
-                {
-                    errors.submitError && <p className='text-danger'><small>{errors.submitError.slice(5, errors.submitError.length)}</small></p>
-                }
-            </Form.Text>
-            <Button onClick={handleProfile} className='w-100 fw-bold' variant="success" type="submit">
-                sign Up
-            </Button>
-            <p><small>Already have an account? <Link to="/login">login please</Link></small></p>
-        </Form>
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control onChange={handlePasswordForm} type="password" placeholder="Password" required />
+                    {
+                        errors.passwordError && <p className='text-danger'><small>{errors.passwordError}</small></p>
+                    }
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Check me out" />
+                </Form.Group>
+                <Form.Text className="text-muted">
+                    {
+                        errors.submitError && <p className='text-danger'><small>{errors.submitError.slice(5, errors.submitError.length)}</small></p>
+                    }
+                </Form.Text>
+                <Button onClick={handleProfile} className='w-100 fw-bold' variant="success" type="submit">
+                    sign Up
+                </Button>
+                <p><small>Already have an account? <Link to="/login">login please</Link></small></p>
+            </Form>
+        </div>
     );
 };
 

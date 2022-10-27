@@ -7,19 +7,19 @@ import { FaArrowCircleDown } from "react-icons/fa";
 import { HiArchive, HiClock } from "react-icons/hi";
 const CourseDetails = () => {
     const data = useLoaderData();
-    const { name, about, email, time, picture, phone, price, lecture } = data;
+    const { name, about, email, time, picture, phone, price, lecture, _id } = data;
     return (
         <div>
             <div className='mt-5 d-flex justify-content-between'>
-                <div className='d-flex'>
-                    <h3 className=''>Access Your Course</h3>
-                    <FaArrowCircleDown style={{ height: '40px', width: '30px', marginLeft: '10px' }}></FaArrowCircleDown>
+                <div>
+                    <h4 className='d-inline'>Access Your Course</h4>
+                    <FaArrowCircleDown style={{ marginLeft: '5px', width: '30px', height: '40px' }}></FaArrowCircleDown>
                 </div>
                 <div>
                     <Button>Download PDF</Button>
                 </div>
             </div>
-            <Card style={{ width: '30rem', margin: '60px auto' }}>
+            <Card className='m-5 w-75'>
                 <Card.Img variant="top" src={picture} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
@@ -46,7 +46,7 @@ const CourseDetails = () => {
                     <Link to="/courses">Go Back</Link>
                 </Card.Body>
             </Card>
-            <Button variant='success'><Link className='text-decoration-none text-light fw-semibold' to='/checkout'>Get Premium Access</Link></Button>
+            <Button variant='success'><Link className='text-decoration-none text-light fw-semibold' to={`/checkout/${_id}`}>Get Premium Access</Link></Button>
         </div>
     );
 };
