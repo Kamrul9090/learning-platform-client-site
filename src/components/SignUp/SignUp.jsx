@@ -4,10 +4,11 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const SignUp = () => {
+    const navigate = useNavigate()
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [userInfo, setUserInfo] = useState({
         email: '',
@@ -32,6 +33,7 @@ const SignUp = () => {
                 console.log(user);
                 handleProfile(name, photoURL)
                 toast.success('Sign Up success')
+                navigate('/')
                 setErrors({ ...errors, submitError: '' })
             })
             .catch(e => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useState } from 'react';
@@ -13,7 +13,10 @@ const Login = () => {
     const { signInGoogle, signInGithub, signInUser } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
+    console.log(from)
     const [errors, setErrors] = useState({
         emailError: '',
         passwordError: '',
@@ -35,9 +38,11 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('Login successfully');
+                navigate(from, { replace: true });
             })
             .catch(e => {
                 console.log(e.message)
+                setErrors({ ...errors, submitError: `${e.message} register Please` })
             })
     }
 
@@ -47,7 +52,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                toast.success('login with google successfully')
+                toast.success('login with google successfully');
+                navigate(from, { replace: true })
             })
             .catch(e => {
                 console.log(e.message)
