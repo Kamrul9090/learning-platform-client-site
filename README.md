@@ -8,7 +8,6 @@
 ## fetch data (`http://localhost:5000/category/${params.id}`)
 ## using course section fetching courses data (`http://localhost:5000/courses`)
 
-## login, sign in, log out, google, github authentication system.
-
+## login, sign in, log out, google, github authentication system with using firebase.
 ## added a private route to access the courses.
-## added 
+## 
