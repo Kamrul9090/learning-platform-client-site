@@ -123,9 +123,7 @@ const Login = () => {
                         errors.passwordError && <p className='text-danger'><small>{errors.passwordError}</small></p>
                     }
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
+
                 <Form.Text className="text-muted">
                     {
                         errors.submitError && <p className='text-danger fw-bold'><small>{errors.submitError}</small></p>

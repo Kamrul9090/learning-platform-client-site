@@ -101,9 +101,6 @@ const SignUp = () => {
                         errors.passwordError && <p className='text-danger'><small>{errors.passwordError}</small></p>
                     }
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
                 <Form.Text className="text-muted">
                     {
                         errors.submitError && <p className='text-danger'><small>{errors.submitError.slice(5, errors.submitError.length)}</small></p>
